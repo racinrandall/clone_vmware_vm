@@ -27,5 +27,16 @@
     networks:
     - name: "{{ vm_network }}"
     wait_for_ip_address: yes
+    customization:
+      domain: "{{ guest_domain }}"
+      dns_servers:
+        - "{{ dns1 }}"
+      dns_suffix:
+        - "{{ guest_domain }}"
+      hostname: "{{ inventory_hostname }}"
   delegate_to: localhost
   register: deploy
+
+- name: Display VM info
+  debug:
+    var: deploy
