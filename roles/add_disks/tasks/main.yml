@@ -36,30 +36,30 @@
     delegate_to: localhost
     loop: "{{ additional_disks }}"
 
-  - name: Create PV and VG
-    community.general.lvg:
-      vg: "vg_{{ item.vol_group }}"
-      pvs: "{{ item.physical_drive }}"
-    loop: "{{ additional_disks }}"
-
-  - name: Create Logical Volumes
-    community.general.lvol: 
-      lv: "lv{{ item.mount_point | replace('/','_')}}"
-      vg: "vg_{{ item.vol_group }}"
-      size: "{{ item.size }}"
-    loop: "{{ additional_mounts }}"
-
-  - name: Format new Logical Volumes
-    filesystem:
-      fstype: "{{ fs_type }}"
-      dev: "/dev/mapper/vg_{{ item.vol_group }}-lv{{ item.mount_point | replace('/','_')}}"
-    loop: "{{ additional_mounts }}"
-
-  - name: Mount Logical Volumes
-    mount:
-      src: "/dev/mapper/vg_{{ item.vol_group }}-lv{{ item.mount_point | replace('/','_')}}"
-      path: "{{ item.mount_point }}"
-      state: mounted
-      fstype: "{{ fs_type }}"
-    loop: "{{ additional_mounts }}"
-  when: additional_disks is defined
+#  - name: Create PV and VG
+#    community.general.lvg:
+#      vg: "vg_{{ item.vol_group }}"
+#      pvs: "{{ item.physical_drive }}"
+#    loop: "{{ additional_disks }}"
+#
+#  - name: Create Logical Volumes
+#    community.general.lvol: 
+#      lv: "lv{{ item.mount_point | replace('/','_')}}"
+#      vg: "vg_{{ item.vol_group }}"
+#      size: "{{ item.size }}"
+#    loop: "{{ additional_mounts }}"
+#
+#  - name: Format new Logical Volumes
+#    filesystem:
+#      fstype: "{{ fs_type }}"
+#      dev: "/dev/mapper/vg_{{ item.vol_group }}-lv{{ item.mount_point | replace('/','_')}}"
+#    loop: "{{ additional_mounts }}"
+#
+#  - name: Mount Logical Volumes
+#    mount:
+#      src: "/dev/mapper/vg_{{ item.vol_group }}-lv{{ item.mount_point | replace('/','_')}}"
+#      path: "{{ item.mount_point }}"
+#      state: mounted
+#      fstype: "{{ fs_type }}"
+#    loop: "{{ additional_mounts }}"
+#  when: additional_disks is defined
