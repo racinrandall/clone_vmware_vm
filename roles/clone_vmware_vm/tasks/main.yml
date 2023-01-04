@@ -7,7 +7,7 @@
     password: "{{ vcenter_password }}"
     validate_certs: "{{ cert_val }}"
     folder: "{{ vm_folder }}"
-    name: "{{ vm_name }}"
+    name: "{{ inventory_hostname }}"
     state: "{{ vm_state }}"
     template: "{{ vm_template }}"
     datacenter: "{{ vcenter_datacenter }}"

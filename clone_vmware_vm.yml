@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   roles:
     - clone_vmware_vm
     - add_disks
