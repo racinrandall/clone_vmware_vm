@@ -1,0 +1,23 @@
+---
+vcenter_hostname: 
+vcenter_username: 
+vcenter_password: 
+cert_val: no
+vm_name:
+vm_disk_size: 60
+vm_disk_type: thin
+vcenter_datastore: iscsi
+vm_template: RHEL7-TEMPLATE
+vm_folder: "/Linux"
+vm_state: "poweredon"
+vm_memory: "4096"
+vm_cpus: 2
+vm_cores_cpu: 1
+vm_scsi: paravirtual
+vm_hotadd_cpu: False
+vm_hotadd_mem: False
+vm_version: 17
+vm_boot_firm: "bios"
+vm_network: lnx
+vcenter_datacenter: Basement
+vcenter_cluster: DL

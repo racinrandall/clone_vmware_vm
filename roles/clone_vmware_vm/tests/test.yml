@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  roles:
+    - /scripts/ansible/clone_vmware_vm
