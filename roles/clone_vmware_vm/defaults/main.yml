@@ -5,7 +5,6 @@ vcenter_password:
 cert_val: no
 vm_name:
 vm_disk_size: 60
-vm_disk_type: thin
 vcenter_datastore: iscsi
 vm_template: RHEL7-TEMPLATE
 vm_folder: "/Linux"
